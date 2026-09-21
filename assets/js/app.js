@@ -32,10 +32,16 @@
   "simulados": "adm/simulados.html",
   "cadastrar-simulado": "adm/cadastrar-simulado.html"
 };
+  // Navegação sempre RELATIVA à página atual (nunca com "/" na frente), pra funcionar
+  // tanto se o site estiver na raiz do domínio quanto numa subpasta da hospedagem.
+  // Só existem dois níveis de profundidade no site: raiz (index.html) e app/ ou adm/ (1 nível).
+  function sitePrefix(){
+    return /\/(app|adm)\/[^\/]*$/.test(window.location.pathname) ? '../' : '';
+  }
   function scrollToFrame(id){
     var url = FRAME_MAP[id];
     if(!url) return;
-    window.location.href = '/' + url;
+    window.location.href = sitePrefix() + url;
   }
   document.querySelectorAll('[data-goto]').forEach(function(elm){
     elm.addEventListener('click', function(){
@@ -43,7 +49,7 @@
       var url = FRAME_MAP[id];
       if(!url) return;
       if(elm.classList.contains('trigger-diag-chat')){ url += '?diag=1'; }
-      window.location.href = '/' + url;
+      window.location.href = sitePrefix() + url;
     });
   });
 
