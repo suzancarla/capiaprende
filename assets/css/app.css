@@ -11,20 +11,8 @@
     --fur:#C96A2B;
     --fur-soft:#F7E4D3;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --page-bg:#0D110A;
-      --page-bg-raised:#171C11;
-      --page-ink:#F1F4EA;
-      --page-ink-soft:#9CA890;
-      --page-accent:#6BFF3A;
-      --page-accent-soft:#1C2A12;
-      --page-line:#293321;
-      --page-shadow:rgba(0,0,0,0.5);
-      --fur:#F0995A;
-      --fur-soft:#2C2015;
-    }
-  }
+  /* o visual claro é o padrão do site, independente do tema do sistema operacional do visitante —
+     só muda se algo no futuro definir explicitamente data-theme="dark" no <html> */
   :root[data-theme="dark"]{
     --page-bg:#0D110A;
     --page-bg-raised:#171C11;
@@ -565,3 +553,18 @@
   html,body{height:100%;}
   body{margin:0;background:var(--page-bg);}
   .page-stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;}
+
+  /* botão fixo "voltar ao início" — aparece em toda página do site publicado,
+     pra nunca ficar sem saber como voltar pro index (fora do mockup do app/adm) */
+  .back-to-index{
+    position:fixed; top:16px; left:16px; z-index:50;
+    display:flex; align-items:center; gap:7px;
+    font-family:'Manrope',sans-serif; font-weight:700; font-size:12.5px;
+    color:var(--page-ink); text-decoration:none;
+    background:var(--page-bg-raised); border:1px solid var(--page-line);
+    border-radius:999px; padding:8px 14px 8px 10px;
+    box-shadow:0 6px 18px var(--page-shadow);
+  }
+  .back-to-index svg{width:15px;height:15px;flex:none;color:var(--page-accent);}
+  .back-to-index:hover{border-color:var(--page-accent);}
+  @media (max-width:520px){ .back-to-index span{display:none;} .back-to-index{padding:9px;} }

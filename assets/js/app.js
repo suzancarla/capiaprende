@@ -153,7 +153,8 @@
   }
   var savedTheme = null;
   try{ savedTheme = localStorage.getItem('capiaprende-app-theme'); }catch(e){}
-  setAppTheme(savedTheme === 'light');
+  // padrão é o tema claro — só fica escuro se a aluna tiver escolhido isso antes
+  setAppTheme(savedTheme !== 'dark');
   if(themeSwitch){
     themeSwitch.addEventListener('click', function(){
       setAppTheme(!themeSwitch.classList.contains('on'));
