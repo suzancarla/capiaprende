@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Conversa — Tempos Verbais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="phone"><div class="notch"></div><div class="screen">
+<div class="statusbar"><span>14:44</span><span class="icons"><svg fill="currentColor" height="10" viewbox="0 0 14 10" width="14"><rect height="4" rx=".5" width="2.4" x="0" y="6"></rect><rect height="6" rx=".5" width="2.4" x="3.8" y="4"></rect><rect height="8" rx=".5" width="2.4" x="7.6" y="2"></rect><rect height="10" rx=".5" width="2.4" x="11.4" y="0"></rect></svg><svg fill="none" height="10" stroke="currentColor" stroke-width="1" viewbox="0 0 20 10" width="20"><rect fill="currentColor" fill-opacity=".12" height="9" rx="2" width="16" x=".5" y=".5"></rect><rect fill="currentColor" height="6" rx="1" width="12" x="2" y="2"></rect><rect fill="currentColor" height="4" rx=".6" width="1.6" x="17" y="3"></rect></svg></span></div>
+<div class="app-top">
+<div class="icon-btn" data-goto="escolha-verbos"><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></div>
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Tempos Verbais</div>
+<span class="status-icon" title="Offline · funciona sem internet"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M1 1l22 22"></path><path d="M16.72 11.06A10.94 10.94 0 0119 12.55"></path><path d="M5 12.55a10.94 10.94 0 015.17-2.39"></path><path d="M10.71 5.05A16 16 0 0122.58 9"></path><path d="M1.42 9a15.91 15.91 0 014.7-2.88"></path><path d="M8.53 16.11a6 6 0 016.95 0"></path><circle cx="12" cy="20" fill="currentColor" r="1" stroke="none"></circle></svg></span>
+</div>
+<div class="app-body">
+<div class="discovery-map" id="discoveryMapVerbos">
+<div class="dm-chip" data-topic="presente"><span class="dot"></span>Presente</div>
+<div class="dm-chip" data-topic="passado"><span class="dot"></span>Passado</div>
+<div class="dm-chip" data-topic="futuro"><span class="dot"></span>Futuro</div>
+</div>
+<div class="chat-thread" id="chatThreadVerbos">
+<div class="msg bot">Oi, Nicolas! 🐹 Sua professora liberou <strong>Tempos Verbais</strong> pra você. Antes de começar, deixa eu entender uma coisa:</div>
+<div class="sondagem-card" data-flow="welcome-verbos">
+<div class="diag-eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><circle cx="10" cy="10" r="6"></circle><path d="M20 20l-5.5-5.5"></path></svg>A CAPIVARINHA QUER SABER</div>
+<div class="diag-q">Na frase "eu estudei ontem", você sabe dizer em que tempo o verbo está?</div>
+<div class="quick-replies">
+<div class="qr-btn" data-choice="nunca">Não sei bem</div>
+<div class="qr-btn" data-choice="talvez">Acho que sei</div>
+<div class="qr-btn" data-choice="sei">Sei bem!</div>
+</div>
+</div>
+</div>
+<div class="chat-input-row">
+<button class="mic-btn" id="micBtnVerbos" title="Enviar áudio"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"></path><path d="M19 11a7 7 0 01-14 0M12 18v3"></path></svg></button>
+<input class="chat-input" id="chatInputVerbos" placeholder="Digite ou toque no mic…"/>
+<button class="send-btn" id="chatSendVerbos"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"></path></svg></button>
+</div>
+<p class="app-sub" style="text-align:center">funciona offline · texto, áudio ou imagem</p>
+</div>
+</div></div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>
