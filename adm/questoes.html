@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Questões</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="icon-btn" data-goto="conteudos"><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></div>
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Questões — Frações</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="app-body">
+<p class="app-sub" id="qCountLabel">12 questões cadastradas · usadas nos simulados dos alunos</p>
+<div class="qform">
+<p class="field-label">Nova questão</p>
+<input class="text-input" value="Se uma pizza foi dividida em 4 pedaços iguais e você comeu 3, que fração você comeu?"/>
+<div class="alt-row"><div class="alt-mark">A</div><input class="text-input" value="1/4"/></div>
+<div class="alt-row"><div class="alt-mark correct">B</div><input class="text-input" value="3/4"/></div>
+<div class="alt-row"><div class="alt-mark">C</div><input class="text-input" value="4/3"/></div>
+<div class="alt-row"><div class="alt-mark">D</div><input class="text-input" value="3/3"/></div>
+<p class="app-sub">Toque na letra pra marcar a alternativa correta</p>
+<div class="btn block">Salvar questão</div>
+</div>
+<div class="qform" style="gap:12px;margin-top:2px">
+<div class="ai-gen-head">
+<p class="field-label" style="margin:0">Gerar questões com IA</p>
+<span class="badge-ai">IA</span>
+</div>
+<p class="app-sub" style="margin-top:-4px">A IA lê o conteúdo e o prompt cadastrados em "Cadastrar" e sugere questões novas. Você revisa e decide o que entra no banco — nada é salvo sem sua aprovação.</p>
+<div class="pick-row">
+<div class="pick-chip">3</div>
+<div class="pick-chip active">5</div>
+<div class="pick-chip">10</div>
+</div>
+<div class="btn block" id="genQuestionsBtn">Gerar questões</div>
+</div>
+<div hidden="" id="aiReviewWrap">
+<div style="display:flex;flex-direction:column;gap:9px;margin-top:2px">
+<p class="section-label">Revisar sugestões da IA</p>
+<div class="q-list" id="aiReviewList">
+<div class="ai-q-item" data-approved="true">
+<div class="ai-q-head">
+<span class="badge-ai">Gerado por IA</span>
+<div class="ai-q-actions">
+<button class="ai-approve active" title="Aprovar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></button>
+<button class="ai-discard" title="Descartar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
+</div>
+</div>
+<div class="qtext">Se você tem 3/4 de uma barra de chocolate e come 1/4, quanto sobra?</div>
+<div class="qalts">A) 1/4 · <span class="right">B) 2/4 ✓</span> · C) 3/4 · D) 4/4</div>
+</div>
+<div class="ai-q-item" data-approved="true">
+<div class="ai-q-head">
+<span class="badge-ai">Gerado por IA</span>
+<div class="ai-q-actions">
+<button class="ai-approve active" title="Aprovar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></button>
+<button class="ai-discard" title="Descartar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
+</div>
+</div>
+<div class="qtext">Qual fração representa a parte pintada de um retângulo dividido em 8 partes iguais, com 5 partes pintadas?</div>
+<div class="qalts">A) 3/8 · B) 5/3 · <span class="right">C) 5/8 ✓</span> · D) 8/5</div>
+</div>
+<div class="ai-q-item" data-approved="false">
+<div class="ai-q-head">
+<span class="badge-ai">Gerado por IA</span>
+<div class="ai-q-actions">
+<button class="ai-approve" title="Aprovar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></button>
+<button class="ai-discard active" title="Descartar"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewbox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg></button>
+</div>
+</div>
+<div class="qtext">Entre 2/3 e 3/4, qual fração é maior?</div>
+<div class="qalts">A) 2/3 · <span class="right">B) 3/4 ✓</span> · C) são iguais · D) não dá pra saber</div>
+</div>
+</div>
+<div class="ai-save-bar">
+<span class="cnt">Aprovadas: <span id="aiApprovedCount">2</span> de <span id="aiTotalCount">3</span></span>
+<div class="btn" id="aiSaveBtn" style="padding:8px 14px">Salvar aprovadas no banco</div>
+</div>
+</div>
+</div>
+<p class="section-label" style="margin-top:2px">Já cadastradas</p>
+<div class="q-list" id="qListExisting">
+<div class="q-item">
+<div class="qtext">Se uma pizza foi dividida em 4 pedaços iguais e você comeu 3, que fração você comeu?</div>
+<div class="qalts">A) 1/4 · <span class="right">B) 3/4 ✓</span> · C) 4/3 · D) 3/3</div>
+</div>
+<div class="q-item">
+<div class="qtext">Qual fração é equivalente a 1/2?</div>
+<div class="qalts"><span class="right">A) 2/4 ✓</span> · B) 1/4 · C) 3/4 · D) 2/2</div>
+</div>
+<div class="q-item">
+<div class="qtext">Em 3/5, qual número é o denominador?</div>
+<div class="qalts">A) 3 · <span class="right">B) 5 ✓</span> · C) 8 · D) 15</div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

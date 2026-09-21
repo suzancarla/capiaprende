@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Simulados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Modo Professor</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="admin-tabs">
+<div class="tab" data-goto="home-professor">Início</div>
+<div class="tab" data-goto="turma">Turmas</div>
+<div class="tab" data-goto="conteudos">Conteúdos</div>
+<div class="tab cta" data-goto="cadastrar"><svg fill="none" stroke="currentColor" stroke-width="2.6" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Cadastrar</div>
+<div class="tab active" data-goto="simulados">Simulados</div>
+</div>
+<div class="app-body">
+<div class="teacher-head">
+<div><h4 class="app-h">Desempenho nos simulados</h4><p class="app-sub">Pontuação por aluno e conteúdo, pra ver quem precisa de mais apoio</p></div>
+<div class="btn" data-goto="cadastrar-simulado"><svg fill="none" stroke="currentColor" stroke-width="2.6" style="width:13px;height:13px" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Criar simulado</div>
+</div>
+<div class="pick-row" id="simFiltros" style="margin:2px 0 2px">
+<div class="pick-chip active" data-conteudo="all">Todos os conteúdos</div>
+<div class="pick-chip" data-conteudo="fracoes">Frações</div>
+<div class="pick-chip" data-conteudo="verbos">Tempos Verbais</div>
+</div>
+<div class="roster" id="simList">
+<div class="roster-row head" style="grid-template-columns:1.1fr .8fr 1fr .9fr 1fr"><div>Aluno</div><div>Turma</div><div>Conteúdo</div><div>Pontuação</div><div>Quando</div></div>
+<div class="roster-row" data-conteudo="fracoes" style="grid-template-columns:1.1fr .8fr 1fr .9fr 1fr"><div class="name">Nicolas Silva</div><div class="sync-time">5º A</div><div class="sync-time">Frações</div><div class="prog-track"><div class="prog-fill" style="width:80%"></div></div><span class="flag ok">8/10 · hoje</span></div>
+<div class="roster-row" data-conteudo="fracoes" style="grid-template-columns:1.1fr .8fr 1fr .9fr 1fr"><div class="name">Marina Alves</div><div class="sync-time">7º B</div><div class="sync-time">Frações</div><div class="prog-track"><div class="prog-fill" style="width:60%"></div></div><span class="flag ok">6/10 · hoje</span></div>
+<div class="roster-row" data-conteudo="verbos" style="grid-template-columns:1.1fr .8fr 1fr .9fr 1fr"><div class="name">Bruno Cardoso</div><div class="sync-time">7º B</div><div class="sync-time">Tempos Verbais</div><div class="prog-track"><div class="prog-fill" style="width:30%"></div></div><span class="flag risk">3/10 · ontem</span></div>
+<div class="roster-row" data-conteudo="fracoes" style="grid-template-columns:1.1fr .8fr 1fr .9fr 1fr"><div class="name">Yasmin Rocha</div><div class="sync-time">7º B</div><div class="sync-time">Frações</div><div class="prog-track"><div class="prog-fill" style="width:90%"></div></div><span class="flag ok">9/10 · ontem</span></div>
+</div>
+<p class="app-sub mono" id="simEmptyMsg" style="text-align:center;display:none">nenhum simulado feito com esse conteúdo ainda</p>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

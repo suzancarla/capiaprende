@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Turma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="icon-btn" data-goto="turma"><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></div>
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Turma 7º B</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="app-body">
+<div class="teacher-head">
+<div><h4 class="app-h">Turma 7º B — Escola Municipal</h4><p class="app-sub">28 alunos cadastrados · 1 conteúdo liberado</p></div>
+</div>
+<div class="teacher-stats">
+<div class="stat-tile"><div class="num">24/28</div><div class="lab">ativos essa semana</div></div>
+<div class="stat-tile"><div class="num">3,2h</div><div class="lab">uso offline por aluno</div></div>
+<div class="stat-tile"><div class="num">61%</div><div class="lab">progresso médio</div></div>
+</div>
+<div class="sparkline-wrap">
+<p class="app-sub">uso offline da turma — últimos 7 dias</p>
+<div class="sparkline">
+<div class="bar" style="height:35%"></div>
+<div class="bar" style="height:52%"></div>
+<div class="bar" style="height:40%"></div>
+<div class="bar hi" style="height:88%"></div>
+<div class="bar" style="height:60%"></div>
+<div class="bar" style="height:30%"></div>
+<div class="bar" style="height:45%"></div>
+</div>
+<div class="labels"><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span><span>dom</span></div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-top:2px;gap:8px">
+<p class="section-label" style="margin:0">Alunos matriculados</p>
+<div class="btn" data-goto="cadastrar-aluno" style="padding:7px 12px;font-size:11px;flex:none"><svg fill="none" stroke="currentColor" stroke-width="2.6" style="width:12px;height:12px" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Adicionar aluno</div>
+</div>
+<div class="roster">
+<div class="roster-row head"><div>Aluno</div><div>Última sinc.</div><div>Progresso</div><div>Situação</div></div>
+<div class="roster-row" data-goto="aluno-historico"><div class="name">Marina Alves</div><div class="sync-time">hoje, 14:33</div><div class="prog-track"><div class="prog-fill" style="width:68%"></div></div><span class="flag ok">em dia</span></div>
+<div class="roster-row" data-goto="aluno-historico"><div class="name">Bruno Cardoso</div><div class="sync-time">há 6 dias</div><div class="prog-track"><div class="prog-fill" style="width:21%"></div></div><span class="flag risk">apoio em tempos verbais</span></div>
+<div class="roster-row" data-goto="aluno-historico"><div class="name">Yasmin Rocha</div><div class="sync-time">há 1 dia</div><div class="prog-track"><div class="prog-fill" style="width:74%"></div></div><span class="flag ok">em dia</span></div>
+<div class="roster-row" data-goto="aluno-historico"><div class="name">Kaique Souza</div><div class="sync-time">há 9 dias</div><div class="prog-track"><div class="prog-fill" style="width:9%"></div></div><span class="flag risk">sem sincronizar</span></div>
+</div>
+<p class="app-sub mono" style="text-align:center">toque num aluno pra ver o histórico individual</p>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

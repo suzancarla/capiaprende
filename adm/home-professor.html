@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Início</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Modo Professor</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="admin-tabs">
+<div class="tab active" data-goto="home-professor">Início</div>
+<div class="tab" data-goto="turma">Turmas</div>
+<div class="tab" data-goto="conteudos">Conteúdos</div>
+<div class="tab cta" data-goto="cadastrar"><svg fill="none" stroke="currentColor" stroke-width="2.6" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Cadastrar</div>
+<div class="tab" data-goto="simulados">Simulados</div>
+</div>
+<div class="app-body">
+<h4 class="app-h">Olá, Ana</h4>
+<p class="app-sub">Resumo de todas as suas turmas nessa escola</p>
+<div class="teacher-stats">
+<div class="stat-tile"><div class="num">4</div><div class="lab">turmas</div></div>
+<div class="stat-tile"><div class="num">71</div><div class="lab">alunos no total</div></div>
+<div class="stat-tile"><div class="num">3</div><div class="lab">conteúdos publicados</div></div>
+</div>
+<p class="section-label">Alunos que precisam de apoio</p>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="diag-card" data-goto="aluno-historico">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg></div>
+<div class="meta"><div class="t">Bruno Cardoso · Turma 7º B</div><div class="s">Tempos Verbais · 3/10 no simulado · sem sincronizar há 6 dias</div></div>
+<div class="go"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="diag-card" data-goto="aluno-historico">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg></div>
+<div class="meta"><div class="t">Kaique Souza · Turma 7º B</div><div class="s">Progresso em 9% · sem sincronizar há 9 dias</div></div>
+<div class="go"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+</div>
+<p class="section-label">Acesso rápido</p>
+<div class="menu-list">
+<div class="menu-row" data-goto="turma">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+<div class="label">Ver turmas</div>
+<div class="chev"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="menu-row" data-goto="cadastrar">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></div>
+<div class="label">Cadastrar conteúdo novo</div>
+<div class="chev"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="menu-row" data-goto="cadastrar-aluno">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M19 8v6M22 11h-6"></path></svg></div>
+<div class="label">Matricular aluno novo</div>
+<div class="chev"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="menu-row" data-goto="simulados">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path></svg></div>
+<div class="label">Acompanhar simulados</div>
+<div class="chev"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

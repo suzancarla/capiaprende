@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Cadastrar conteúdo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Modo Professor</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="admin-tabs">
+<div class="tab" data-goto="home-professor">Início</div>
+<div class="tab" data-goto="turma">Turmas</div>
+<div class="tab" data-goto="conteudos">Conteúdos</div>
+<div class="tab active cta" data-goto="cadastrar"><svg fill="none" stroke="currentColor" stroke-width="2.6" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Cadastrar</div>
+<div class="tab" data-goto="simulados">Simulados</div>
+</div>
+<div class="app-body">
+<h4 class="app-h">Cadastrar novo conteúdo</h4>
+<p class="app-sub">O que a turma escolhida vai ver na Home dela</p>
+<div class="scroll-section">
+<p class="field-label">Turma / série</p>
+<div class="pick-row">
+<div class="pick-chip active">5º A</div>
+<div class="pick-chip">5º B</div>
+<div class="pick-chip">7º B</div>
+</div>
+<p class="field-label" style="margin-top:6px">Matéria</p>
+<div class="pick-row">
+<div class="pick-chip active">Matemática</div>
+<div class="pick-chip">Língua Portuguesa</div>
+<div class="pick-chip">Ciências</div>
+</div>
+<div class="field" style="margin-top:6px">
+<p class="field-label">Título do conteúdo</p>
+<input class="text-input" value="Frações — introdução"/>
+</div>
+<div class="field">
+<p class="field-label">Material de apoio</p>
+<div class="upload-box">
+<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"></path><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"></path></svg>
+                  Anexar PDF, imagem ou texto
+                  <div class="file-chip"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 11.5V17a4 4 0 01-4 4H8a4 4 0 01-4-4V8a4 4 0 014-4h6"></path><path d="M15 4l5 5-9 9H7v-4z"></path></svg>fracoes_aula1.pdf</div>
+</div>
+</div>
+<div class="field">
+<p class="field-label">Prompt para a IA (opcional)</p>
+<textarea class="text-input" style="min-height:72px;resize:vertical;font-family:'Manrope';line-height:1.4">Explique frações usando exemplos do dia a dia (pizza, chocolate, laranja). Evite termos técnicos — o aluno é do 5º ano. Se ele errar, dê uma dica antes de mostrar a resposta certa.</textarea>
+<p class="app-sub" style="margin-top:5px">Ajuda a IA local do celular a responder de um jeito mais contextualizado pra esse conteúdo e essa turma.</p>
+</div>
+</div>
+<div class="btn block" data-goto="playground" style="margin-top:12px">Publicar e testar no playground</div>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

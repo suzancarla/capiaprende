@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="icon-btn" data-goto="conteudos"><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></div>
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Playground — Frações</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="app-body">
+<div class="playground-note">Aqui você conversa com a mesma IA que vai rodar no celular do aluno, já usando o prompt e os materiais desse conteúdo. Teste antes de publicar.</div>
+<div class="chat-widget">
+<div class="chat-thread" id="pgThread">
+<div class="msg bot">Oi, professora! Sou a Capivarinha testando o conteúdo <strong>Frações — introdução</strong>, com o prompt que você configurou. Pergunte algo como um aluno do 5º ano perguntaria.</div>
+<div class="msg user">o que é uma fração?</div>
+<div class="msg bot">Uma fração mostra uma parte de um todo — tipo meia pizza dividida em 2 pedaços iguais, e você comeu 1. 🍕</div>
+</div>
+<div class="chat-input-row">
+<input class="chat-input" id="pgInput" placeholder="Digite uma pergunta de teste…"/>
+<button class="send-btn" id="pgSend"><svg fill="currentColor" viewbox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"></path></svg></button>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

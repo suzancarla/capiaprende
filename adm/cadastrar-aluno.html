@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Matricular aluno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="icon-btn" data-goto="turma-detalhe"><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></div>
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Matricular aluno</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="app-body">
+<h4 class="app-h">Matricular novo aluno</h4>
+<p class="app-sub">Gera o login que o aluno vai usar pra entrar no app, mesmo sem internet</p>
+<div class="scroll-section">
+<p class="field-label">Turma / série</p>
+<div class="pick-row">
+<div class="pick-chip">5º A</div>
+<div class="pick-chip">5º B</div>
+<div class="pick-chip active">6º A</div>
+<div class="pick-chip">7º B</div>
+</div>
+<div class="field" style="margin-top:6px">
+<p class="field-label">Nome completo</p>
+<input class="text-input" value="Larissa Martins"/>
+</div>
+<div class="field">
+<p class="field-label">Usuário (matrícula)</p>
+<input class="text-input mono" readonly="" value="larissa.martins"/>
+<p class="app-sub" style="margin-top:5px">Gerado a partir do nome — dá pra editar se já existir outro aluno com esse usuário.</p>
+</div>
+<div class="field">
+<p class="field-label">Senha provisória</p>
+<input class="text-input mono" readonly="" value="7734"/>
+<p class="app-sub" style="margin-top:5px">O aluno troca a senha depois do primeiro acesso. Anote os dois dados pra entregar a ele.</p>
+</div>
+</div>
+<div class="btn block" data-goto="turma-detalhe" style="margin-top:12px">Matricular aluno</div>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

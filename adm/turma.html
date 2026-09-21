@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capi-Aprende — Turmas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<div class="page-stage">
+<div class="tablet-wrap">
+<div class="tablet"><div class="screen">
+<div class="app-top" style="padding-top:18px">
+<div class="brand-mark"><img alt="" src="/assets/img/logo_140.png"/></div>
+<div class="brand-name">Modo Professor</div>
+<span class="status-chip warn"><span class="dot"></span>precisa de internet</span>
+</div>
+<div class="admin-tabs">
+<div class="tab" data-goto="home-professor">Início</div>
+<div class="tab active" data-goto="turma">Turmas</div>
+<div class="tab" data-goto="conteudos">Conteúdos</div>
+<div class="tab cta" data-goto="cadastrar"><svg fill="none" stroke="currentColor" stroke-width="2.6" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Cadastrar</div>
+<div class="tab" data-goto="simulados">Simulados</div>
+</div>
+<div class="app-body">
+<div class="teacher-head">
+<div><h4 class="app-h">Suas turmas</h4><p class="app-sub">4 turmas cadastradas nessa escola</p></div>
+<div class="btn" data-goto="cadastrar-aluno"><svg fill="none" stroke="currentColor" stroke-width="2.6" style="width:13px;height:13px" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Matricular aluno</div>
+</div>
+<div class="pick-row" id="turmaFiltros" style="margin:2px 0 2px">
+<div class="pick-chip active" data-serie="all">Todas as séries</div>
+<div class="pick-chip" data-serie="5">5º ano</div>
+<div class="pick-chip" data-serie="6">6º ano</div>
+<div class="pick-chip" data-serie="7">7º ano</div>
+</div>
+<div class="content-detail-list" id="turmaList">
+<div class="content-detail-row" data-goto="turma-detalhe" data-serie="5">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+<div class="meta">
+<div class="name">5º A</div>
+<div class="sub">Escola Municipal Campo Verde · 22 alunos · 2 conteúdos</div>
+</div>
+<div class="go-btn">ver<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="content-detail-row" data-goto="turma-detalhe" data-serie="5">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+<div class="meta">
+<div class="name">5º B <span class="badge-warn">sem conteúdo</span></div>
+<div class="sub">Escola Municipal Campo Verde · 19 alunos · 0 conteúdos</div>
+</div>
+<div class="go-btn">ver<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="content-detail-row" data-goto="turma-detalhe-vazia" data-serie="6">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+<div class="meta">
+<div class="name">6º A <span class="badge-warn">sem alunos</span> <span class="badge-warn">sem conteúdo</span></div>
+<div class="sub">Escola Municipal Campo Verde · turma criada recentemente</div>
+</div>
+<div class="go-btn">ver<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+<div class="content-detail-row" data-goto="turma-detalhe" data-serie="7">
+<div class="icon-wrap"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+<div class="meta">
+<div class="name">7º B</div>
+<div class="sub">Escola Municipal Campo Verde · 28 alunos · 1 conteúdo</div>
+</div>
+<div class="go-btn">ver<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></div>
+</div>
+</div>
+<p class="app-sub mono" id="turmaEmptyMsg" style="text-align:center;display:none">nenhuma turma nessa série</p>
+</div>
+</div></div>
+</div>
+</div>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>
