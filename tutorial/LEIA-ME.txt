@@ -1,0 +1,10 @@
+Tutorial Capi-Aprende (versao web)
+
+Como publicar
+1. Envie o arquivo index.html para qualquer hospedagem de paginas estaticas (GitHub Pages, Netlify, Vercel, Google Sites via embed, servidor da escola).
+2. Ou abra o index.html direto no navegador. Ele e um arquivo unico: as telas ja estao dentro dele.
+
+Observacoes
+- As fontes (Baloo 2, Nunito Sans e JetBrains Mono) vem do Google Fonts. Sem internet, a pagina usa fontes do sistema e continua funcionando.
+- A pasta "imagens" tem as telas ja recortadas (formato WebP) para reaproveitar em outros materiais. A pagina nao depende dela.
+- Para trocar um texto, abra o index.html em um editor e procure o trecho.
