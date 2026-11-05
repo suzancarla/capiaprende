@@ -2,8 +2,8 @@
 // Podem ficar no GitHub sem problema: quem protege os dados são as regras do banco.
 // NUNCA coloque aqui a chave "secret" / "service_role".
 export const config = {
-  url: 'COLE_AQUI_O_PROJECT_URL',      // ex.: https://abcdefgh.supabase.co
-  chave: 'COLE_AQUI_A_CHAVE_PUBLISHABLE', // ex.: sb_publishable_... (ou a chave "anon")
+  url: 'https://supabase.com/dashboard/project/kjsvwvbydsretwcnljjr/',      // ex.: https://abcdefgh.supabase.co
+  chave: 'sb_publishable_kAN2ud3wh22PQuOcJWwQLg_5LFRWpaT', // ex.: sb_publishable_... (ou a chave "anon")
 }
 
 export const configurado =
