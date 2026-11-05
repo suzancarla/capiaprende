@@ -1,0 +1,23 @@
+SITE PRONTO DA PLATAFORMA (não precisa montar nada)
+
+O que tem aqui:  index.html, app.js, app.css e config.js
+
+1) Abra o config.js num editor de texto (Bloco de Notas) e troque as DUAS coisas:
+     COLE_AQUI_O_PROJECT_URL        -> o Project URL do Supabase  (ex.: https://abcdefgh.supabase.co)
+     COLE_AQUI_A_CHAVE_PUBLISHABLE  -> a chave publishable        (começa com sb_publishable_)
+   Mantenha as aspas e a vírgula. NUNCA use a chave "secret" ou "service_role".
+   (Não mexa no texto COLE_AQUI da linha "export const configurado".)
+
+2) No seu site, APAGUE tudo que está na pasta "plataforma" (o código-fonte antigo).
+
+3) Coloque nela os 4 arquivos: index.html, app.js, app.css e config.js
+   (diretamente dentro de "plataforma", sem criar outra subpasta).
+
+4) Na Cloudflare: Caching > Configuration > Purge Cache > Purge Everything.
+
+5) Abra https://capiaprende.capibots.com.br/plataforma/ numa janela anônima.
+   Deve aparecer a tela de login. Se aparecer "Falta configurar", o config.js
+   ainda está com os textos COLE_AQUI.
+
+Observação: as bibliotecas (React, rotas e Supabase) são carregadas do esm.sh
+(CDN) quando a página abre, então o navegador precisa de internet.

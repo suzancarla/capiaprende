@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232f6b4f'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>C</text></svg>" />
     <title>Capi-Aprende · Plataforma</title>
+    <!-- As bibliotecas (React, rotas e Supabase) são carregadas de um CDN (esm.sh), com versão fixa. -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+        "react-dom": "https://esm.sh/react-dom@18.3.1?external=react",
+        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
+        "react-router-dom": "https://esm.sh/react-router-dom@6.26.2?external=react,react-dom",
+        "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.45.4"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="./app.css" />
   </head>
   <body>
     <div id="raiz"></div>
-    <script type="module" src="/plataforma/src/main.jsx"></script>
+    <noscript>Ative o JavaScript para usar a plataforma.</noscript>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
