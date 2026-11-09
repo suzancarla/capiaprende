@@ -57,7 +57,7 @@ p{margin:0}
 .topo{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--fundo) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
 .topo .contorno{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
 .marca{display:flex;align-items:center;gap:.6rem;font:800 1.1rem var(--titulo);color:var(--texto);text-decoration:none}
-.marca img{width:36px;height:36px;border-radius:10px}
+.marca img{width:36px;height:36px;border-radius:10px;background:#FBFAF3;border:1px solid #E4E1D2;padding:3px;object-fit:contain}
 .topo .contorno{flex-wrap:wrap}
 .trilha{display:flex;gap:.2rem;align-items:center;flex:1;justify-content:center;min-width:0}
 .trilha a{color:var(--mudo);text-decoration:none;font-weight:600;font-size:.88rem;padding:.45rem .65rem;border-radius:10px;white-space:nowrap;border-bottom:2px solid transparent}
@@ -74,7 +74,7 @@ p{margin:0}
 .topo-btn:hover{color:#fff}
 .marca{white-space:nowrap}
 section[id],main[id]{scroll-margin-top:76px}
-@media (max-width:1020px){
+@media (max-width:1240px){
   .topo .contorno{min-height:0;padding-top:.55rem}
   .trilha{order:3;flex:0 0 100%;justify-content:flex-start;overflow-x:auto;padding:.3rem 0 .55rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .trilha::-webkit-scrollbar{display:none}
@@ -92,7 +92,7 @@ section[id],main[id]{scroll-margin-top:76px}
 .abertura .lead{font-size:1.18rem;color:var(--mudo);max-width:34rem}
 .acoes{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
 .nota-pequena{font-size:.88rem;color:var(--mudo);margin-top:.9rem;max-width:34rem}
-.logo-grande{justify-self:center;width:min(380px,80%);background:var(--cartao);border-radius:36px;padding:1.4rem;box-shadow:var(--sombra);border:1px solid var(--linha);transform:rotate(2deg)}
+.logo-grande{justify-self:center;width:min(380px,80%);background:#FBFAF3;border-radius:36px;padding:1.4rem;box-shadow:var(--sombra);border:1px solid #E4E1D2;transform:rotate(2deg)}
 @media (max-width:860px){.abertura .contorno{grid-template-columns:1fr}.logo-grande{width:min(260px,70%);order:-1;justify-self:start}}
 
 /* problema */
