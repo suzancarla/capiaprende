@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia da plataforma do professor · Capi-Aprende</title>
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=JetBrains+Mono:wght@500&family=Nunito+Sans:wght@400;700;800&display=swap">
+<style>
+:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: faixa fixa de capítulos no alto; abaixo, capítulos em ordem de uso, cada um com cartões "tela real + legenda". */
+:root {
+  --bg: #FBFAF3; --surface: #FFFFFF; --raised: #F2F0E4; --ink: #1B2015; --soft: #5C6651;
+  --line: #E4E1D2; --accent: #2FA309; --accent-text: #1E7506; --on-accent: #FFFFFF; --tint: #E7F2DF;
+  --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B0F09; --surface: #141B10; --raised: #1B2416; --ink: #F4F7EE; --soft: #A3B096;
+    --line: #26331E; --accent: #57FF2E; --accent-text: #57FF2E; --on-accent: #06280A; --tint: #15230F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B0F09; --surface: #141B10; --raised: #1B2416; --ink: #F4F7EE; --soft: #A3B096;
+  --line: #26331E; --accent: #57FF2E; --accent-text: #57FF2E; --on-accent: #06280A; --tint: #15230F;
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3, p, ul, ol, figure { margin: 0; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .09em; text-transform: uppercase; color: var(--accent-text); }
+
+/* faixa de capítulos */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top-in { display: flex; align-items: center; gap: 16px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 8px; flex: none; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 18px; }
+.brand img { width: 38px; height: 38px; padding: 3px; object-fit: contain; border-radius: 10px; background: #FBFAF3; border: 1px solid #E4E1D2; } /* a logo tem partes transparentes e letras escuras: precisa de placa clara no tema escuro */
+.top nav { position: relative; display: flex; gap: 4px; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.top nav::-webkit-scrollbar { display: none; }
+.top nav a { flex: none; padding: 6px 12px; border-radius: 999px; border: 1px solid transparent; font-size: 14px; font-weight: 700; color: var(--soft); text-decoration: none; white-space: nowrap; }
+.top nav a:hover { background: var(--raised); color: var(--ink); }
+.top nav a.on { background: var(--tint); border-color: var(--line); color: var(--accent-text); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 700px) {
+  .top-in { flex-wrap: wrap; gap: 6px; }
+  .top nav { flex: 1 1 100%; }
+}
+
+/* abertura */
+.hero { padding-block: 36px 12px; }
+.hero-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.hero-txt { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.04; text-wrap: balance; }
+.lead { font-size: 1.15rem; max-width: 40ch; color: var(--soft); }
+.meta { font-family: var(--mono); font-size: 13px; color: var(--soft); }
+.mascote { flex: none; width: clamp(88px, 18vw, 150px); height: auto; }
+
+/* três fatos */
+.fatos { padding-block: 28px 12px; }
+.fatos h2 { font-family: var(--display); font-weight: 800; font-size: 1.45rem; margin-bottom: 14px; text-wrap: balance; }
+.fatos-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px 28px; }
+.fatos-list li { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 2px solid var(--line); min-width: 0; }
+.fatos-list h3 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; line-height: 1.2; }
+.fatos-list p { font-size: 15.5px; color: var(--soft); }
+.fatos-list b { color: var(--ink); }
+
+/* capítulos */
+.cap-sec { padding-block: 44px 8px; scroll-margin-top: 64px; }
+.cap-sec > * { max-width: 1120px; margin-left: auto; margin-right: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.cap-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 22px; }
+.cap-head h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 4vw, 2.3rem); line-height: 1.1; text-wrap: balance; }
+.intro { color: var(--soft); max-width: 62ch; }
+.grid { list-style: none; padding-top: 0; padding-bottom: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 330px)); gap: 30px 22px; justify-content: start; }
+.card { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.shot { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); overflow: hidden; cursor: zoom-in; box-shadow: 0 1px 2px rgba(20, 30, 10, .06); }
+.shot:hover { border-color: var(--accent); }
+.shot img { display: block; width: 100%; height: auto; }
+.cap { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+.n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); font-family: var(--mono); font-size: 13px; margin-top: 1px; font-variant-numeric: tabular-nums; }
+.cap > div { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cap h3 { font-family: var(--display); font-weight: 600; font-size: 1.12rem; line-height: 1.2; }
+.cap p { font-size: 15.5px; line-height: 1.45; }
+.cap b { font-weight: 800; }
+.cap .tap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px; }
+.tap span { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
+.cap .tap b { font-family: var(--mono); font-weight: 500; font-size: 13px; padding: 4px 10px; border-radius: 10px; background: var(--accent); color: var(--on-accent); }
+
+.foot { margin-top: 56px; padding-block: 28px; border-top: 1px solid var(--line); color: var(--soft); font-size: 14px; }
+
+/* tela ampliada */
+.lb { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding: calc(56px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: rgba(8, 12, 6, .88); }
+.lb[hidden] { display: none; }
+.lb figure { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; }
+.lb img { max-width: min(92vw, 520px); max-height: 78vh; width: auto; height: auto; border-radius: 22px; background: #fff; }
+.lb figcaption { color: #F4F7EE; font-family: var(--display); font-weight: 600; font-size: 1.1rem; text-align: center; }
+.lb-x { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); padding: 9px 18px; border: 0; border-radius: 999px; background: #F4F7EE; color: #1B2015; font: 800 15px var(--body); cursor: pointer; }
+
+/* nota do capítulo (diferenças do modo visitante) */
+.cap-sec > .nota { margin-top: 30px; padding-top: 20px; padding-bottom: 20px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); background: var(--tint); border: 1px solid var(--line); border-radius: 18px; max-width: min(1088px, calc(100% - 32px)); }
+.nota > h3 { font-family: var(--display); font-weight: 800; font-size: 1.3rem; line-height: 1.15; margin-bottom: 14px; }
+.nota ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px 28px; }
+.nota li { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.nota h4 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.05rem; line-height: 1.2; }
+.nota p { font-size: 15.5px; line-height: 1.45; color: var(--ink); }
+.nota b { font-weight: 800; }
+
+/* por que o Capi-Aprende existe (ODS 4) */
+.ods { padding-block: 28px 12px; }
+.ods h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1.1; margin-bottom: 12px; text-wrap: balance; }
+.ods-txt { display: flex; flex-direction: column; gap: 10px; max-width: 68ch; }
+.ods-txt p, .ods-fim { font-size: 1.05rem; color: var(--ink); }
+.ods-list { list-style: none; padding: 0; margin: 20px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px 28px; }
+.ods-list li { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 2px solid var(--accent); min-width: 0; }
+.ods-list h3 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; line-height: 1.2; }
+.ods-list p { font-size: 15.5px; color: var(--soft); }
+.ods-fim { max-width: 68ch; }
+
+.ods-destaque { margin: 22px 0; padding: 26px 22px; text-align: center; background: var(--tint); border: 1px solid var(--line); border-left: 6px solid var(--accent); border-radius: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ods-destaque p { margin: 0; }
+.ods-a { font-size: 1.05rem; color: var(--soft); }
+.ods-b { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.05; color: var(--accent-text); }
+.ods-c { font-size: clamp(1.1rem, 2.4vw, 1.3rem); font-weight: 700; line-height: 1.35; max-width: 34em; text-wrap: balance; }
+.ods-link { margin-top: 10px; display: inline-block; padding: 8px 16px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 800; font-size: 15px; text-decoration: none; }
+.ods-link:hover { filter: brightness(1.08); }
+.ods-ico { display: grid; place-items: center; width: 80px; height: 80px; border-radius: 22px; background: var(--tint); border: 1px solid var(--line); color: var(--accent-text); margin-bottom: 4px; }
+.ods a:not(.ods-link), .foot a, .cap a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+
+/* introdução: texto justificado, com hifenização, ocupando a largura da seção */
+.ods h2 { text-align: left; }
+.ods-txt, .ods-cols, .ods-fim { max-width: none; margin-inline: 0; text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: pretty; }
+.ods-txt p, .ods-cols p, .ods-fim { font-size: 1.1rem; line-height: 1.6; color: var(--ink); text-wrap: pretty; }
+.ods-cols { columns: 1; }
+.ods-cols p { margin: 0 0 12px; }
+.ods-destaque { max-width: none; margin-inline: 0; }
+.lead { max-width: 52ch; }
+@media (min-width: 801px) { .lead { text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: pretty; } }
+@media (max-width: 800px) { .ods-cols { columns: 1; } .ods-txt, .ods-cols, .ods-fim { text-align: left; } }
+
+/* mapa de navegação: no computador mostra todos os itens (quebra em linhas); no celular rola de lado com aviso na borda */
+.top nav { flex-wrap: wrap; overflow: visible; gap: 2px 2px; }
+.top nav a { padding: 5px 10px; font-size: 14px; }
+.cap-sec, .ods { scroll-margin-top: 110px; }
+@media (max-width: 700px) {
+  .top nav { flex-wrap: nowrap; overflow-x: auto; -webkit-mask-image: linear-gradient(to right, #000 88%, transparent); mask-image: linear-gradient(to right, #000 88%, transparent); padding-right: 24px; }
+  .cap-sec, .ods { scroll-margin-top: 100px; }
+}
+.pend { display: flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box; border: 2px dashed var(--line); border-radius: 22px; background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(120,130,90,.06) 14px 28px); padding: 22px; text-align: center; }
+.pend-in { display: flex; flex-direction: column; gap: 10px; align-items: center; max-width: 300px; }
+.pend-tag { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--accent); color: var(--on-accent); }
+.pend strong { font-family: var(--display); font-size: 20px; line-height: 1.2; color: var(--ink); }
+.pend p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--soft); }
+
+/* ---- guia da plataforma: telas largas ---- */
+.passos { list-style: none; padding-top: 0; padding-bottom: 0; display: flex; flex-direction: column; gap: 44px; }
+.passo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; min-width: 0; }
+@media (min-width: 940px) { .passo { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 34px; } .passo .cap { position: sticky; top: 96px; } }
+.fig { min-width: 0; }
+.fig .shot { border-radius: 14px; }
+.shot.corte { -webkit-mask-image: linear-gradient(#000 86%, transparent); mask-image: linear-gradient(#000 86%, transparent); }
+.lb img { max-width: min(94vw, 1400px); border-radius: 12px; }
+.aviso { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.aviso p { background: var(--tint); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; font-size: 15px; color: var(--ink); }
+
+</style>
+</head>
+<body>
+<header class="top">
+<div class="wrap top-in">
+<a class="brand" href="#topo"><img src="img/logo.webp" width="32" height="30" alt=""><span>Capi-Aprende</span></a>
+<nav aria-label="Capítulos"><a href="#antes">Antes de começar</a><a href="#entrar">Entrar</a><a href="#turmas">Turmas</a><a href="#conteudos">Conteúdos</a><a href="#novos">Novos conteúdos</a><a href="#questoes">Questões</a><a href="#simulados">Simulados</a><a href="#relatorios">Relatórios</a><a href="#master">Coordenação</a></nav>
+</div>
+</header>
+<main id="topo">
+<section class="hero"><div class="wrap hero-in">
+<div class="hero-txt">
+<p class="eyebrow">Guia do professor</p>
+<h1>Conheça a plataforma do professor</h1>
+<p class="lead">As telas da plataforma, na ordem em que você usa. Toque em qualquer tela para ver maior.</p>
+<p class="meta">42 telas · 8 capítulos</p>
+</div>
+<img class="mascote" src="img/capi.webp" width="160" height="160" alt="Capivarinha, a mascote do Capi-Aprende, acenando">
+</div></section>
+<div class="aviso"><p><b>Sobre as imagens:</b> são telas reais da plataforma, com nomes de pessoas, escolas e números inventados para o guia. Nada aqui é dado de aluno de verdade.</p></div>
+<section class="fatos" id="antes" aria-labelledby="h-fatos"><div class="wrap">
+<h2 id="h-fatos">Três coisas para saber antes de começar</h2>
+<ul class="fatos-list"><li><span class="ods-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="38" height="26" rx="3"/><path d="M17 41h14M24 35v6"/><path d="M13 27l7-7 5 5 9-10"/></svg></span><h3>Você precisa de internet; o aluno não</h3><p>A plataforma abre no navegador do computador ou do celular e precisa de internet. Os alunos usam o aplicativo, que funciona sem internet depois que o conteúdo foi baixado.</p></li><li><span class="ods-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24a16 16 0 0 1 27-11"/><path d="M36 6v8h-8"/><path d="M40 24a16 16 0 0 1-27 11"/><path d="M12 42v-8h8"/></svg></span><h3>O que você publica chega na sincronização</h3><p>Conteúdos, questões e simulados chegam ao aparelho do aluno na próxima atualização do app, quando ele estiver com internet. O uso do aluno volta para você do mesmo jeito.</p></li><li><span class="ods-ico" aria-hidden="true"><svg viewBox="0 0 48 48" width="54" height="54" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l3.5 9.5L37 18l-9.5 3.5L24 31l-3.5-9.5L11 18l9.5-3.5z"/><path d="M38 30l1.8 4.2L44 36l-4.2 1.8L38 42l-1.8-4.2L32 36l4.2-1.8z"/></svg></span><h3>A IA faz o rascunho, você decide</h3><p>A IA cria o texto da aula, as questões e a jornada. Nada vai para os alunos antes de você revisar, testar a prévia e publicar.</p></li></ul>
+</div></section>
+<section class="cap-sec" id="entrar" aria-labelledby="h-entrar">
+<header class="cap-head"><p class="eyebrow">Capítulo 1 de 8</p><h2 id="h-entrar">Entrar e Minha conta</h2><p class="intro">Você entra com o e-mail e a senha que a coordenação cadastrou. Os alunos não entram por aqui: eles usam o aplicativo.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Tela de entrada" aria-label="Ampliar a tela: Tela de entrada" style="max-width:1000px"><img src="img/login.webp" width="1500" height="960" alt="Tela da plataforma: Tela de entrada" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Tela de entrada</h3><p>Escreva o seu e-mail e a sua senha e toque em Entrar. Se esquecer a senha, peça uma nova para a coordenação.</p><p class="tap"><span>Toque em</span><b>Entrar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Minha conta" aria-label="Ampliar a tela: Minha conta" style="max-width:1000px"><img src="img/conta.webp" width="1500" height="891" alt="Tela da plataforma: Minha conta" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Minha conta</h3><p>No alto da tela, toque em Minha conta para trocar a sua senha. Ela precisa ter pelo menos 8 caracteres. Ao lado fica o Sair.</p><p class="tap"><span>Toque em</span><b>Trocar senha</b></p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="turmas" aria-labelledby="h-turmas">
+<header class="cap-head"><p class="eyebrow">Capítulo 2 de 8</p><h2 id="h-turmas">Minhas turmas</h2><p class="intro">A primeira tela depois de entrar.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Suas turmas e seus alunos" aria-label="Ampliar a tela: Suas turmas e seus alunos" style="max-width:1000px"><img src="img/turmas.webp" width="1500" height="746" alt="Tela da plataforma: Suas turmas e seus alunos" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Suas turmas e seus alunos</h3><p>Cada turma mostra os alunos, o usuário que cada um usa no app e se o aluno está Ativo ou Desativado. A faixa azul lembra onde ficam as outras coisas: para liberar conteúdos, use a aba Conteúdos; para criar simulados, use a aba Simulados.</p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="conteudos" aria-labelledby="h-conteudos">
+<header class="cap-head"><p class="eyebrow">Capítulo 3 de 8</p><h2 id="h-conteudos">Conteúdos</h2><p class="intro">Os conteúdos que você pode liberar para as turmas e publicar para os visitantes do app.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Lista de conteúdos" aria-label="Ampliar a tela: Lista de conteúdos" style="max-width:1000px"><img src="img/conteudos.webp" width="1500" height="750" alt="Tela da plataforma: Lista de conteúdos" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Lista de conteúdos</h3><p>Cada linha mostra a série, em quantas turmas o conteúdo está liberado, quantos simulados ele tem e se é Público (os visitantes do app também veem). Toque em Gerenciar para mexer em um conteúdo.</p><p class="tap"><span>Toque em</span><b>Gerenciar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Gerenciar um conteúdo" aria-label="Ampliar a tela: Gerenciar um conteúdo" style="max-width:760px"><img src="img/gerenciar.webp" width="1140" height="1530" alt="Tela da plataforma: Gerenciar um conteúdo" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Gerenciar um conteúdo</h3><p>Aqui você muda o nome, escolhe quem enxerga o conteúdo (os visitantes da série e as suas turmas) e vê quantos simulados ele tem. Para mudar o texto, a base de conhecimento e a jornada, toque em Editar texto, base e jornada.</p><p class="tap"><span>Toque em</span><b>Editar texto, base e jornada</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Editar o conteúdo" aria-label="Ampliar a tela: Editar o conteúdo" style="max-width:1000px"><img src="img/editar.webp" width="1500" height="1230" alt="Tela da plataforma: Editar o conteúdo" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Editar o conteúdo</h3><p>As abas são Texto e instruções, Base de conhecimento, Jornada e Prévia. Na Jornada você muda a fala da Capivarinha, o texto do botão e o desenho de cada passo. O botão no alto mostra Tudo salvo quando não há nada pendente.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Prévia no celular" aria-label="Ampliar a tela: Prévia no celular" style="max-width:1000px"><img src="img/editar_previa.webp" width="1500" height="1350" alt="Tela da plataforma: Prévia no celular" loading="lazy"></button></div>
+<div class="cap"><span class="n">4</span><div><h3>Prévia no celular</h3><p>Veja como o aluno vai enxergar a aula no celular, com tema claro ou escuro. A prévia já mostra as suas edições, mesmo as que ainda não foram salvas. A conversa livre com a IA só funciona de verdade no aparelho do aluno.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Excluir um conteúdo" aria-label="Ampliar a tela: Excluir um conteúdo" style="max-width:760px"><img src="img/excluir.webp" width="1140" height="1932" alt="Tela da plataforma: Excluir um conteúdo" loading="lazy"></button></div>
+<div class="cap"><span class="n">5</span><div><h3>Excluir um conteúdo</h3><p>Em Gerenciar, no fim da tela, toque em Excluir este conteúdo. O aviso lista tudo o que será apagado e você precisa digitar o nome do conteúdo para confirmar. Não dá para desfazer.</p><p class="tap"><span>Toque em</span><b>Excluir este conteúdo…</b></p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="novos" aria-labelledby="h-novos">
+<header class="cap-head"><p class="eyebrow">Capítulo 4 de 8</p><h2 id="h-novos">Novos conteúdos com a IA</h2><p class="intro">Descreva o que quer ensinar, envie materiais e peça um rascunho à IA. Depois você revisa, testa e publica.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Seus rascunhos" aria-label="Ampliar a tela: Seus rascunhos" style="max-width:1000px"><img src="img/novos_lista.webp" width="1500" height="795" alt="Tela da plataforma: Seus rascunhos" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Seus rascunhos</h3><p>Aqui ficam os conteúdos novos. A situação mostra se o rascunho está Pronto para revisar ou já foi Publicado. Toque em Novo conteúdo para começar. Em Revisar e publicar, você confere um rascunho pronto.</p><p class="tap"><span>Toque em</span><b>Novo conteúdo</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Conte o que será ensinado" aria-label="Ampliar a tela: Conte o que será ensinado" style="max-width:760px"><img src="img/novo_form.webp" width="1140" height="960" alt="Tela da plataforma: Conte o que será ensinado" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Conte o que será ensinado</h3><p>Escreva o nome do conteúdo, a matéria, a série e o que a turma precisa aprender: tópicos, exemplos que você gosta de usar e erros comuns. Cabem até 4000 caracteres. Depois toque em Salvar e enviar materiais.</p><p class="tap"><span>Toque em</span><b>Salvar e enviar materiais</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Envie seus materiais" aria-label="Ampliar a tela: Envie seus materiais" style="max-width:760px"><img src="img/novo_materiais.webp" width="1140" height="1572" alt="Tela da plataforma: Envie seus materiais" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Envie seus materiais</h3><p>Envie PDF, Word, texto ou imagens (até 10 arquivos de 10 MB). A IA lê o que você escreveu e os arquivos enviados e usa como fonte. As imagens servem só como fonte para a IA e não aparecem no app. Depois toque em Gerar rascunho com IA.</p><p class="tap"><span>Toque em</span><b>Gerar rascunho com IA</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="A IA está trabalhando" aria-label="Ampliar a tela: A IA está trabalhando" style="max-width:760px"><img src="img/gerando.webp" width="1140" height="1932" alt="Tela da plataforma: A IA está trabalhando" loading="lazy"></button></div>
+<div class="cap"><span class="n">4</span><div><h3>A IA está trabalhando</h3><p>São três etapas: o texto da aula com as instruções da Capivarinha e a base de conhecimento; as questões e os simulados; e a jornada guiada. Cada etapa pode levar de 1 a 2 minutos. Nada vai para os alunos antes de você publicar.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Rascunho gerado" aria-label="Ampliar a tela: Rascunho gerado" style="max-width:760px"><img src="img/gerado.webp" width="1140" height="1932" alt="Tela da plataforma: Rascunho gerado" loading="lazy"></button></div>
+<div class="cap"><span class="n">5</span><div><h3>Rascunho gerado</h3><p>Quando as três etapas terminam, aparece o resumo: tópicos, itens da base, questões, simulados e passos da jornada. Agora é só revisar, testar a prévia e publicar.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Revisar o rascunho" aria-label="Ampliar a tela: Revisar o rascunho" style="max-width:1000px"><img src="img/revisar.webp" width="1500" height="1140" alt="Tela da plataforma: Revisar o rascunho" loading="lazy"></button></div>
+<div class="cap"><span class="n">6</span><div><h3>Revisar o rascunho</h3><p>Em Revisar e publicar, leia e ajuste cada parte nas abas Texto e instruções, Base de conhecimento, Questões e Jornada. Nome, matéria e série mudam no botão Abrir, na lista de Novos conteúdos.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Testar a prévia" aria-label="Ampliar a tela: Testar a prévia" style="max-width:1000px"><img src="img/revisar_previa.webp" width="1500" height="1350" alt="Tela da plataforma: Testar a prévia" loading="lazy"></button></div>
+<div class="cap"><span class="n">7</span><div><h3>Testar a prévia</h3><p>Na aba Prévia, veja a aula guiada, as questões e simulados, as figuras e o texto da aula como o aluno vai ver no celular.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Publicar" aria-label="Ampliar a tela: Publicar" style="max-width:1000px"><img src="img/revisar_publicar.webp" width="1500" height="858" alt="Tela da plataforma: Publicar" loading="lazy"></button></div>
+<div class="cap"><span class="n">8</span><div><h3>Publicar</h3><p>Na aba Publicar, marque as turmas que vão receber o conteúdo e toque no botão de publicar (ele diz, por exemplo, “Publicar para 1 turma”). Se não marcar nenhuma turma, o botão diz Publicar sem liberar para turmas: o conteúdo fica guardado e você libera depois, em Conteúdos. Depois de publicado, o rascunho não pode mais ser editado aqui.</p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="questoes" aria-labelledby="h-questoes">
+<header class="cap-head"><p class="eyebrow">Capítulo 5 de 8</p><h2 id="h-questoes">Questões</h2><p class="intro">O banco de questões de cada conteúdo. Cada vez que você salva, o conteúdo ganha uma versão nova e os alunos recebem as mudanças na próxima atualização do app.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Banco de questões" aria-label="Ampliar a tela: Banco de questões" style="max-width:1000px"><img src="img/questoes.webp" width="1500" height="1350" alt="Tela da plataforma: Banco de questões" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Banco de questões</h3><p>Escolha o conteúdo. Você vê o número de questões, a versão, os tópicos e quantos simulados usam essas questões. Busque pelo enunciado ou filtre por tópico. Cada questão mostra a resposta certa, a explicação e em quantos simulados ela é usada, com os botões Editar e Apagar. As mudanças só valem depois de clicar em Salvar.</p><p class="tap"><span>Toque em</span><b>Salvar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Nova questão" aria-label="Ampliar a tela: Nova questão" style="max-width:1000px"><img src="img/questao_nova.webp" width="1500" height="1500" alt="Tela da plataforma: Nova questão" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Nova questão</h3><p>Escolha o tópico, escreva o enunciado e as alternativas e marque a certa. Escreva também a explicação, que o aluno vê depois de responder. Toque em Adicionar à lista.</p><p class="tap"><span>Toque em</span><b>Nova questão</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Gerar questões com a IA" aria-label="Ampliar a tela: Gerar questões com a IA" style="max-width:1000px"><img src="img/questao_ia.webp" width="1500" height="1500" alt="Tela da plataforma: Gerar questões com a IA" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Gerar questões com a IA</h3><p>Escolha o tópico e quantas questões quer (de 1 a 10). Se quiser, dê orientações, como situações do dia a dia. A IA propõe questões novas, sem repetir as que já existem. Confira cada uma, edite se quiser e toque em Adicionar todas. Nada vai para os alunos até você clicar em Salvar.</p><p class="tap"><span>Toque em</span><b>Gerar</b></p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="simulados" aria-labelledby="h-simulados">
+<header class="cap-head"><p class="eyebrow">Capítulo 6 de 8</p><h2 id="h-simulados">Simulados</h2><p class="intro">Veja os simulados das suas turmas, crie novos e acompanhe os resultados.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Lista de simulados" aria-label="Ampliar a tela: Lista de simulados" style="max-width:1000px"><img src="img/simulados.webp" width="1500" height="1259" alt="Tela da plataforma: Lista de simulados" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Lista de simulados</h3><p>Ficam aqui os simulados que vêm com o conteúdo e os que você cria para uma turma. Use a busca e os filtros de turma, conteúdo, origem e situação. Toque em Abrir para ver um simulado.</p><p class="tap"><span>Toque em</span><b>Abrir</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="As questões do simulado" aria-label="Ampliar a tela: As questões do simulado" style="max-width:1000px"><img src="img/sim_questoes.webp" width="1500" height="1170" alt="Tela da plataforma: As questões do simulado" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>As questões do simulado</h3><p>Na aba Questões, leia as questões inteiras, com a resposta certa e a explicação. No alto ficam os botões Editar e Apagar.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Como o aluno vê" aria-label="Ampliar a tela: Como o aluno vê" style="max-width:1000px"><img src="img/sim_aluno.webp" width="1500" height="1350" alt="Tela da plataforma: Como o aluno vê" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Como o aluno vê</h3><p>Resolva como se fosse o aluno: a ordem e a tela são as do aplicativo. Nada do que você marcar aqui é guardado.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Resultados da turma" aria-label="Ampliar a tela: Resultados da turma" style="max-width:1000px"><img src="img/sim_resultados.webp" width="1500" height="1350" alt="Tela da plataforma: Resultados da turma" loading="lazy"></button></div>
+<div class="cap"><span class="n">4</span><div><h3>Resultados da turma</h3><p>Veja quantos alunos fizeram e o percentual de acertos da turma. A tabela mostra quem fez, a última nota, as tentativas e a melhor nota, e marca quem Precisa de ajuda. Dá para baixar a planilha (CSV).</p><p class="tap"><span>Toque em</span><b>Baixar planilha (CSV)</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Criar um simulado" aria-label="Ampliar a tela: Criar um simulado" style="max-width:1000px"><img src="img/sim_novo.webp" width="1500" height="1500" alt="Tela da plataforma: Criar um simulado" loading="lazy"></button></div>
+<div class="cap"><span class="n">5</span><div><h3>Criar um simulado</h3><p>Escolha o conteúdo e a turma, dê um título e, se quiser, um prazo. Depois marque as questões do banco, uma a uma ou por tópico, ou toque em Sortear para a plataforma escolher.</p><p class="tap"><span>Toque em</span><b>Sortear</b></p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="relatorios" aria-labelledby="h-relatorios">
+<header class="cap-head"><p class="eyebrow">Capítulo 7 de 8</p><h2 id="h-relatorios">Relatórios</h2><p class="intro">Como a sua turma está usando o app. Escolha o período no alto e toque em Aplicar.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Visão geral" aria-label="Ampliar a tela: Visão geral" style="max-width:1000px"><img src="img/rel_geral.webp" width="1500" height="1575" alt="Tela da plataforma: Visão geral" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Visão geral</h3><p>Mostra quantos alunos usaram o app, quantos simulados foram feitos, as pessoas por dia e o que fizeram no app.</p><p class="tap"><span>Toque em</span><b>Aplicar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Turmas e alunos" aria-label="Ampliar a tela: Turmas e alunos" style="max-width:1000px"><img src="img/rel_turmas.webp" width="1500" height="1350" alt="Tela da plataforma: Turmas e alunos" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Turmas e alunos</h3><p>Escolha a turma e veja, aluno por aluno, os dias de uso, o último uso, os simulados, os acertos e se o aluno refez jornadas. Quem não usou o app no período aparece marcado. Toque em Jornadas para ver o que cada aluno fez.</p><p class="tap"><span>Toque em</span><b>Jornadas</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Jornadas de um aluno" aria-label="Ampliar a tela: Jornadas de um aluno" style="max-width:1000px"><img src="img/rel_jornadas.webp" width="1500" height="1950" alt="Tela da plataforma: Jornadas de um aluno" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Jornadas de um aluno</h3><p>Mostra, conteúdo por conteúdo, quantas vezes o aluno começou, refez e concluiu a jornada, e onde ele está agora. “Refez” conta as vezes em que o aluno usou “Refazer do zero”.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Conteúdos e questões" aria-label="Ampliar a tela: Conteúdos e questões" style="max-width:1000px"><img src="img/rel_conteudos.webp" width="1500" height="1650" alt="Tela da plataforma: Conteúdos e questões" loading="lazy"></button></div>
+<div class="cap"><span class="n">4</span><div><h3>Conteúdos e questões</h3><p>Escolha um conteúdo e veja quantos simulados foram feitos e o percentual de acertos. A lista mostra as questões da que mais errou para a que menos errou, com o erro mais comum, e ajuda você a ver o que vale reforçar em sala.</p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Respostas marcadas" aria-label="Ampliar a tela: Respostas marcadas" style="max-width:1000px"><img src="img/rel_marcadas.webp" width="1500" height="1500" alt="Tela da plataforma: Respostas marcadas" loading="lazy"></button></div>
+<div class="cap"><span class="n">5</span><div><h3>Respostas marcadas</h3><p>Aqui ficam as respostas da Capivarinha que o aluno marcou como estranhas, com a pergunta e a resposta. Servem para você ver onde a IA errou ou o que falta no material. Anote o que você fez e marque a situação de cada uma. O texto foi escrito por crianças: pode ter dados pessoais, então use só para acompanhar.</p></div></div>
+</li>
+</ol>
+</section><section class="cap-sec" id="master" aria-labelledby="h-master">
+<header class="cap-head"><p class="eyebrow">Capítulo 8 de 8</p><h2 id="h-master">Coordenação (master)</h2><p class="intro">Estas abas aparecem só para quem tem o perfil de coordenação (master). O master vê e mexe em tudo o que as professoras cadastram.</p></header>
+<ol class="passos">
+<li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Escolas" aria-label="Ampliar a tela: Escolas" style="max-width:1000px"><img src="img/m_escolas.webp" width="1500" height="555" alt="Tela da plataforma: Escolas" loading="lazy"></button></div>
+<div class="cap"><span class="n">1</span><div><h3>Escolas</h3><p>Cadastre as escolas com a cidade. Use Editar ou Apagar quando precisar.</p><p class="tap"><span>Toque em</span><b>Nova escola</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Turmas" aria-label="Ampliar a tela: Turmas" style="max-width:1000px"><img src="img/m_turmas.webp" width="1500" height="638" alt="Tela da plataforma: Turmas" loading="lazy"></button></div>
+<div class="cap"><span class="n">2</span><div><h3>Turmas</h3><p>Cadastre as turmas de cada escola, com série e ano.</p><p class="tap"><span>Toque em</span><b>Nova turma</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Professores" aria-label="Ampliar a tela: Professores" style="max-width:1000px"><img src="img/m_professores.webp" width="1500" height="852" alt="Tela da plataforma: Professores" loading="lazy"></button></div>
+<div class="cap"><span class="n">3</span><div><h3>Professores</h3><p>Veja quem é professor, em quais turmas, e se está Ativo ou Desativado. Dá para ligar o professor a turmas, gerar Nova senha e Desativar.</p><p class="tap"><span>Toque em</span><b>Novo professor</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Novo professor" aria-label="Ampliar a tela: Novo professor" style="max-width:480px"><img src="img/m_prof_novo.webp" width="720" height="666" alt="Tela da plataforma: Novo professor" loading="lazy"></button></div>
+<div class="cap"><span class="n">4</span><div><h3>Novo professor</h3><p>Escreva o nome e o e-mail, que é o login do professor, e marque as turmas (pode marcar depois). A senha é gerada e aparece na próxima tela.</p><p class="tap"><span>Toque em</span><b>Criar professor</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Alunos" aria-label="Ampliar a tela: Alunos" style="max-width:1000px"><img src="img/m_alunos.webp" width="1500" height="888" alt="Tela da plataforma: Alunos" loading="lazy"></button></div>
+<div class="cap"><span class="n">5</span><div><h3>Alunos</h3><p>Filtre por turma ou busque por nome ou usuário. Cada aluno pode trocar de Turma, ganhar Nova senha, ter a senha escolhida por você em Definir senha e ser Desativado ou Ativado.</p><p class="tap"><span>Toque em</span><b>Novo aluno</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Novo aluno" aria-label="Ampliar a tela: Novo aluno" style="max-width:480px"><img src="img/m_aluno_novo.webp" width="720" height="624" alt="Tela da plataforma: Novo aluno" loading="lazy"></button></div>
+<div class="cap"><span class="n">6</span><div><h3>Novo aluno</h3><p>Escreva o nome. O usuário de login no app é sugerido a partir do nome (sem acento e sem espaço); você pode mudar se dois alunos tiverem o mesmo. Escolha a turma e toque em Criar aluno.</p><p class="tap"><span>Toque em</span><b>Criar aluno</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Importar uma lista" aria-label="Ampliar a tela: Importar uma lista" style="max-width:760px"><img src="img/m_importar.webp" width="1140" height="1134" alt="Tela da plataforma: Importar uma lista" loading="lazy"></button></div>
+<div class="cap"><span class="n">7</span><div><h3>Importar uma lista</h3><p>Para cadastrar vários alunos de uma vez, toque em Importar lista, escolha a turma e escreva um aluno por linha, ou carregue um arquivo .csv ou .txt. Dá para informar o usuário depois de um ponto e vírgula. A prévia mostra os nomes e os usuários antes de criar.</p><p class="tap"><span>Toque em</span><b>Criar 4 alunos</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Definir a senha de um aluno" aria-label="Ampliar a tela: Definir a senha de um aluno" style="max-width:480px"><img src="img/m_definir_senha.webp" width="720" height="612" alt="Tela da plataforma: Definir a senha de um aluno" loading="lazy"></button></div>
+<div class="cap"><span class="n">8</span><div><h3>Definir a senha de um aluno</h3><p>Em vez da senha gerada, você escolhe uma: de 6 a 72 caracteres, sem espaço no começo ou no fim. Repita a senha e toque em Salvar senha. A senha antiga deixa de valer na hora. Só vale para alunos.</p><p class="tap"><span>Toque em</span><b>Salvar senha</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Avise o aluno" aria-label="Ampliar a tela: Avise o aluno" style="max-width:480px"><img src="img/m_senha_definida.webp" width="720" height="570" alt="Tela da plataforma: Avise o aluno" loading="lazy"></button></div>
+<div class="cap"><span class="n">9</span><div><h3>Avise o aluno</h3><p>A senha aparece uma única vez. Toque em Copiar ou em Imprimir cartão e avise o aluno. Depois que você tocar em Pronto, ela não aparece de novo: se esquecerem, defina ou gere outra.</p><p class="tap"><span>Toque em</span><b>Pronto</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Conteúdos de todos" aria-label="Ampliar a tela: Conteúdos de todos" style="max-width:1000px"><img src="img/m_conteudos.webp" width="1500" height="1578" alt="Tela da plataforma: Conteúdos de todos" loading="lazy"></button></div>
+<div class="cap"><span class="n">10</span><div><h3>Conteúdos de todos</h3><p>O master vê todos os conteúdos de todos os professores, com a série, em quantas turmas e quantos simulados, e a visibilidade. Pode abrir os detalhes e gerenciar qualquer um.</p><p class="tap"><span>Toque em</span><b>Gerenciar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Prompts da IA" aria-label="Ampliar a tela: Prompts da IA" style="max-width:1000px"><img src="img/m_prompts.webp" width="1500" height="1200" alt="Tela da plataforma: Prompts da IA" loading="lazy"></button></div>
+<div class="cap"><span class="n">11</span><div><h3>Prompts da IA</h3><p>São os textos que a plataforma envia para a IA ao gerar um conteúdo novo. As mudanças valem a partir da próxima geração. Dá para Restaurar o original quando quiser.</p><p class="tap"><span>Toque em</span><b>Salvar</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot" type="button" data-title="Outros masters" aria-label="Ampliar a tela: Outros masters" style="max-width:1000px"><img src="img/m_masters.webp" width="1500" height="581" alt="Tela da plataforma: Outros masters" loading="lazy"></button></div>
+<div class="cap"><span class="n">12</span><div><h3>Outros masters</h3><p>Cadastre outras pessoas da coordenação, com Novo master. Cada master pode ganhar uma Nova senha.</p><p class="tap"><span>Toque em</span><b>Novo master</b></p></div></div>
+</li><li class="passo">
+<div class="fig"><button class="shot corte" type="button" data-title="Relatório de visitantes" aria-label="Ampliar a tela: Relatório de visitantes" style="max-width:1000px"><img src="img/m_visitantes.webp" width="1500" height="1350" alt="Tela da plataforma: Relatório de visitantes" loading="lazy"></button></div>
+<div class="cap"><span class="n">13</span><div><h3>Relatório de visitantes</h3><p>Em Relatórios, a aba Visitantes mostra quem usa o app como visitante, com a série, a escola e o uso. Só aparecem visitantes cujo responsável autorizou o envio. Dá para baixar a planilha (CSV).</p><p class="tap"><span>Toque em</span><b>Baixar planilha (CSV)</b></p></div></div>
+</li>
+</ol>
+</section>
+</main>
+<footer class="foot"><div class="wrap"><p>Capi-Aprende, versão beta feita para o <a href="https://www.torneiobrasilderobotica.com.br/" target="_blank" rel="noopener">Torneio Brasil de Robótica</a> (TBR). Equipe <a href="https://www.instagram.com/equipecapibots/" target="_blank" rel="noopener">@equipecapibots</a>.</p></div></footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Tela ampliada" hidden>
+<button class="lb-x" type="button" aria-label="Fechar">Fechar</button>
+<figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+</div>
+<script>
+(function () {
+  var lb = document.getElementById('lb'), im = document.getElementById('lb-img'), cp = document.getElementById('lb-cap'), last = null;
+  function abrir(btn) {
+    var img = btn.querySelector('img');
+    im.src = img.src; im.alt = img.alt; cp.textContent = btn.getAttribute('data-title');
+    lb.hidden = false; last = btn; lb.querySelector('.lb-x').focus();
+  }
+  function fechar() { lb.hidden = true; if (last) last.focus(); }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.shot');
+    if (b) { abrir(b); return; }
+    if (!lb.hidden && (e.target === lb || e.target.closest('.lb-x'))) fechar();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) fechar(); });
+
+  var nav = document.querySelector('.top nav');
+  var links = [].slice.call(nav.querySelectorAll('a')), porId = {};
+  links.forEach(function (a) { porId[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var a = porId[en.target.id]; if (!a) return;
+        links.forEach(function (l) { l.classList.remove('on'); });
+        a.classList.add('on');
+        nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    [].slice.call(document.querySelectorAll('.ods, .cap-sec')).forEach(function (s) { io.observe(s); });
+  }
+})();
+
+</script>
+</body>
+</html>
