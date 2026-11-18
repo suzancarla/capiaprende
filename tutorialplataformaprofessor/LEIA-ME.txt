@@ -1,0 +1,19 @@
+Guia da plataforma do professor - como publicar
+
+1. Publique esta pasta no endereco /tutorialplataformaprofessor/ do site: index.html, a pasta img e os tres arquivos de icone, juntos.
+   Diferente do tutorial do app, as telas ficam na pasta img (nao estao dentro do index.html).
+2. As telas sao da plataforma de verdade, com nomes e numeros inventados.
+3. Para trocar um print por outro, substitua o arquivo em img (mesmo nome, formato WebP).
+4. Para trocar um texto, abra o index.html num editor e procure o trecho.
+
+Atualizacao de novembro/2026 (51 telas, 9 capitulos):
+- Capitulo novo "Menu e Inicio": Inicio do professor, menu do professor, Inicio da coordenacao e menu agrupado da coordenacao.
+- "Minhas turmas" virou "Turmas" (nome novo no menu); cada capitulo diz agora por onde chegar pelo menu.
+- Entrar: passo novo com o aviso de acesso desativado.
+- Coordenacao: passo "Desativar e ativar uma conta" e tres passos de "Pedidos de acesso" (formulario do site, lista, andamento e anotacao).
+- Prints refeitos com o menu novo: turmas, conta, alunos. Prints NOVOS: inicio_professor, inicio_master, menu_professor, menu_grupos,
+  login_desativado, m_aluno_desativar, hotsite_form, m_pedidos, m_pedidos_nota. Foram gerados com dados inventados.
+- ATENCAO: os outros prints (conteudos, simulados, relatorios, escolas, professores etc.) ainda mostram a barra de menu ANTIGA no alto.
+  O conteudo das telas continua igual. Quando quiser, troque pelos prints novos (mesmo nome, WebP).
+
+Fontes: vem do Google Fonts; sem internet a pagina usa fontes do sistema e continua funcionando.
