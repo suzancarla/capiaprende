@@ -176,14 +176,48 @@ section[id],main[id]{scroll-margin-top:76px}
 .item-conf p{color:var(--mudo);font-size:.97rem}
 .item-conf strong{color:var(--texto);display:block}
 
-/* baixar */
-.baixar{background:var(--botao);color:#fff;border-radius:28px;padding:clamp(1.6rem,4vw,2.6rem);display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
-.baixar h2{color:#fff}
-.baixar p{color:#e6f4dc;margin-top:.5rem;max-width:36rem}
-.baixar .botao{background:#fff;color:#1B5E04}
-.baixar .botao:hover{background:#F2F0E4}
-.baixar #aviso-apk{margin-top:.6rem;font-size:.88rem;color:#e6f4dc}
-@media (max-width:760px){.baixar{grid-template-columns:1fr}}
+/* beta-tester: faixa + formulário */
+[hidden]{display:none!important}
+.beta{background:var(--botao);color:#fff;border-radius:28px;padding:clamp(1.6rem,4vw,2.6rem);display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
+.beta h2{color:#fff}
+.beta p{color:#e6f4dc;margin-top:.5rem;max-width:36rem}
+.beta .botao{background:#fff;color:#1B5E04}
+.beta .botao:hover{background:#F2F0E4}
+@media (max-width:760px){.beta{grid-template-columns:1fr}}
+:root{--laranja:#B05A1F;--laranja-hover:#964A15;--laranja-texto:#fff;--laranja-linha:#C96A2B}
+:root[data-tema="escuro"]{--laranja:#F0995A;--laranja-hover:#F5AB74;--laranja-texto:#1B1208;--laranja-linha:#F0995A}
+.beta-modal{border:0;padding:0;border-radius:24px;width:min(520px,100% - 24px);max-height:calc(100dvh - 24px);background:var(--cartao);color:var(--texto);box-shadow:0 24px 70px rgba(0,0,0,.35);overflow:hidden}
+.beta-modal[open]{display:flex;flex-direction:column}
+.beta-modal::backdrop{background:rgba(11,15,9,.55)}
+.beta-corpo{padding:clamp(1.3rem,4vw,1.9rem);overflow-y:auto;position:relative}
+.beta-fechar{position:absolute;top:.8rem;right:.8rem;width:40px;height:40px;border-radius:12px;border:0;background:transparent;color:var(--mudo);cursor:pointer;display:grid;place-items:center}
+.beta-fechar:hover{background:var(--cartao-alto);color:var(--texto)}
+.beta-fechar:focus-visible{outline:3px solid var(--laranja-linha);outline-offset:2px}
+.beta-fechar svg{width:20px;height:20px}
+.beta-modal h2{font-size:1.45rem;padding-right:2.6rem}
+.beta-sub{color:var(--mudo);margin-top:.5rem;font-size:.97rem}
+.beta-form{display:grid;gap:1rem;margin-top:1.3rem}
+.beta-campo{display:grid;gap:.35rem}
+.beta-campo label{font-weight:700;font-size:.95rem}
+.beta-campo input,.beta-campo select{font:inherit;color:var(--texto);background:var(--fundo);border:1.5px solid var(--linha);border-radius:12px;padding:.7rem .9rem;width:100%;min-height:46px}
+.beta-campo input:focus,.beta-campo select:focus{outline:3px solid var(--laranja-linha);outline-offset:0;border-color:var(--laranja-linha)}
+.beta-campo select option{background:var(--cartao);color:var(--texto)}
+.beta-campo select option:checked{background:var(--acento-claro);color:var(--acento-escuro)}
+.beta-aceite{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;font-size:.88rem;color:var(--mudo);line-height:1.5}
+.beta-aceite input{width:20px;height:20px;margin:.15rem 0 0;accent-color:var(--laranja)}
+.beta-aceite input:focus-visible{outline:3px solid var(--laranja-linha);outline-offset:2px}
+.beta-isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.beta-envia{background:var(--laranja);color:var(--laranja-texto);border-radius:14px;font:700 1rem var(--corpo);padding:.9rem 1.4rem;border:0;cursor:pointer;width:100%;transition:background .15s}
+.beta-envia:hover:not(:disabled){background:var(--laranja-hover)}
+.beta-envia:focus-visible{outline:3px solid var(--laranja-linha);outline-offset:3px}
+.beta-envia:disabled{opacity:.45;cursor:not-allowed}
+.beta-dica{font-size:.85rem;color:var(--mudo);text-align:center;margin-top:-.4rem}
+.beta-erro{background:#FBE4E1;color:#8A1C12;border-radius:12px;padding:.7rem .9rem;font-size:.92rem}
+:root[data-tema="escuro"] .beta-erro{background:#3a1713;color:#ffb4a8}
+.beta-ok{text-align:center;padding:1rem 0 .4rem;display:grid;gap:.9rem;justify-items:center}
+.beta-ok svg{width:56px;height:56px;color:var(--acento-escuro)}
+.beta-ok p{color:var(--mudo)}
+.beta-ok .botao{margin-top:.4rem}
 
 /* rodapé */
 .rodape{border-top:1px solid var(--linha);padding:2rem 0 3rem;color:var(--mudo);font-size:.92rem}
@@ -205,7 +239,7 @@ section[id],main[id]{scroll-margin-top:76px}
       <a href="#recursos">O que já existe</a>
       <a href="#para-quem">Para quem</a>
       <a href="#privacidade">Privacidade</a>
-      <a href="#baixar">Baixar o app</a>
+      <a href="#beta">Beta-tester</a>
     </nav>
     <div class="topo-acoes">
       <button type="button" class="tema-btn" id="btn-tema" aria-pressed="false" aria-label="Mudar para o tema escuro" title="Tema claro/escuro">
@@ -481,21 +515,56 @@ section[id],main[id]{scroll-margin-top:76px}
   </div>
 </section>
 
-<!-- 8. BAIXAR O APP -->
-<section class="secao" id="baixar" style="padding-top:0">
+<!-- 8. SEJA BETA-TESTER (formulário) -->
+<section class="secao" id="beta" style="padding-top:0">
   <div class="contorno">
-    <div class="baixar">
+    <div class="beta">
       <div>
-        <h2>Baixar o aplicativo</h2>
-        <p>Durante a validação, o app é entregue às escolas participantes. Quando houver uma versão aberta, o botão ao lado passa a funcionar.</p>
-        <p id="aviso-apk" hidden role="status">O download ainda não está disponível. Em breve!</p>
+        <h2>Seja beta-tester do Capi-Aprende</h2>
+        <p>Durante a validação, o app é entregue a quem se inscreve. Preencha o formulário e a equipe entra em contato com o login e os próximos passos.</p>
       </div>
-      <a class="botao" id="btn-apk" href="#baixar">Baixar para Android</a>
+      <button type="button" class="botao" id="btn-beta" aria-haspopup="dialog">Quero ser beta-tester</button>
     </div>
   </div>
 </section>
 
 </main>
+
+<dialog class="beta-modal" id="dlg-beta" aria-labelledby="beta-titulo">
+  <div class="beta-corpo">
+    <button type="button" class="beta-fechar" id="beta-x" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="beta-tela-form">
+      <h2 id="beta-titulo">Seja beta-tester do Capi-Aprende</h2>
+      <p class="beta-sub">Preencha os dados e a equipe entrará em contato com os próximos passos.</p>
+      <form class="beta-form" id="beta-form" novalidate autocomplete="on">
+        <div class="beta-campo"><label for="beta-nome">Nome</label><input id="beta-nome" name="nome" type="text" autocomplete="name" maxlength="120" required></div>
+        <div class="beta-campo"><label for="beta-email">E-mail</label><input id="beta-email" name="email" type="email" autocomplete="email" maxlength="160" required></div>
+        <div class="beta-campo"><label for="beta-perfil">Perfil</label>
+          <select id="beta-perfil" name="perfil" required>
+            <option value="">Escolha uma opção</option>
+            <option>Professor(a)</option>
+            <option>Familiar ou responsável</option>
+            <option>Aluno(a)</option>
+            <option>Outro</option>
+          </select></div>
+        <div class="beta-campo"><label for="beta-cidade">Cidade</label><input id="beta-cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="120" required></div>
+        <div class="beta-isca" aria-hidden="true"><label for="beta-isca">Não preencha este campo</label><input id="beta-isca" name="empresa_site" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="beta-aceite" for="beta-aceite"><input id="beta-aceite" type="checkbox"><span>Concordo que a equipe Capibots guarde meu nome, e-mail, perfil e cidade para enviar o login e falar sobre o teste do Capi-Aprende. Os dados não serão compartilhados nem usados para outra finalidade, e posso pedir a exclusão pelo e-mail equipecapibots@gmail.com. Se o participante for criança, a inscrição deve ser feita por um responsável.</span></label>
+        <div class="beta-erro" id="beta-erro" role="alert" hidden></div>
+        <button type="submit" class="beta-envia" id="beta-envia" disabled>Quero participar</button>
+        <p class="beta-dica" id="beta-dica">Preencha todos os campos e marque a autorização para liberar o botão.</p>
+      </form>
+    </div>
+    <div class="beta-ok" id="beta-tela-ok" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>
+      <h2 id="beta-ok-titulo" tabindex="-1" style="padding-right:0">Pedido recebido!</h2>
+      <p>Obrigada pelo interesse. A equipe Capibots vai entrar em contato pelo e-mail informado com o login e os próximos passos.</p>
+      <button type="button" class="botao principal" id="beta-fechar-ok">Fechar</button>
+    </div>
+  </div>
+</dialog>
 
 <footer class="rodape">
   <div class="contorno">
@@ -515,17 +584,11 @@ section[id],main[id]{scroll-margin-top:76px}
 
 <script>
 /* ---- Ajustes simples (edite aqui, sem mexer no resto) ---- */
-var URL_DO_APK = "";      // quando houver o arquivo do app, coloque o endereço aqui (ex.: "/downloads/capi-aprende.apk")
-var EMAIL_DE_CONTATO = ""; // coloque um e-mail para o botão "Quero conversar" abrir uma mensagem
+var URL_DO_FORMULARIO = "https://kjsvwvbydsretwcnljjr.supabase.co/functions/v1/solicitar-acesso"; // endereço da função "solicitar-acesso" do Supabase (ex.: "https://SEU-PROJETO.supabase.co/functions/v1/solicitar-acesso")
+var TEXTO_VERSAO = "v1";   // versão do texto de autorização do formulário; se mudar o texto, troque para "v2", "v3"...
+var EMAIL_DE_CONTATO = "equipecapibots@gmail.com"; // coloque um e-mail para o botão "Quero conversar" abrir uma mensagem
 
 (function () {
-  var apk = document.getElementById('btn-apk'), aviso = document.getElementById('aviso-apk');
-  if (URL_DO_APK) {
-    apk.href = URL_DO_APK; apk.setAttribute('download', '');
-  } else {
-    apk.setAttribute('aria-disabled', 'true'); apk.textContent = 'Em breve para Android';
-    apk.addEventListener('click', function (e) { e.preventDefault(); aviso.hidden = false; });
-  }
   var contato = document.getElementById('btn-contato'), p = document.getElementById('contato');
   if (EMAIL_DE_CONTATO) {
     contato.href = 'mailto:' + EMAIL_DE_CONTATO + '?subject=' + encodeURIComponent('Capi-Aprende');
@@ -534,6 +597,68 @@ var EMAIL_DE_CONTATO = ""; // coloque um e-mail para o botão "Quero conversar" 
     contato.setAttribute('aria-disabled', 'true'); contato.textContent = 'Contato em breve';
     contato.addEventListener('click', function (e) { e.preventDefault(); });
   }
+})();
+
+/* Formulário "Seja beta-tester": envia para a função solicitar-acesso do Supabase */
+(function () {
+  var dlg = document.getElementById('dlg-beta'), abrir = document.getElementById('btn-beta');
+  var form = document.getElementById('beta-form'), telaForm = document.getElementById('beta-tela-form'), telaOk = document.getElementById('beta-tela-ok');
+  var nome = document.getElementById('beta-nome'), email = document.getElementById('beta-email'), perfil = document.getElementById('beta-perfil');
+  var cidade = document.getElementById('beta-cidade'), aceite = document.getElementById('beta-aceite'), isca = document.getElementById('beta-isca');
+  var envia = document.getElementById('beta-envia'), dica = document.getElementById('beta-dica'), erro = document.getElementById('beta-erro');
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/, enviando = false;
+
+  function valido() {
+    return nome.value.trim().length >= 2 && EMAIL.test(email.value.trim()) && perfil.value !== '' && cidade.value.trim().length >= 2 && aceite.checked;
+  }
+  function atualizar() {
+    var ok = valido();
+    envia.disabled = !ok || enviando;
+    dica.hidden = ok;
+  }
+  function mostrarErro(msg) { erro.textContent = msg; erro.hidden = !msg; }
+  function reiniciar() {
+    form.reset(); mostrarErro(''); enviando = false; envia.textContent = 'Quero participar';
+    telaOk.hidden = true; telaForm.hidden = false; atualizar();
+  }
+  function fechar() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+
+  abrir.addEventListener('click', function () {
+    reiniciar();
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    document.documentElement.style.overflow = 'hidden';
+    nome.focus();
+  });
+  dlg.addEventListener('close', function () { document.documentElement.style.overflow = ''; abrir.focus(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) fechar(); });
+  document.getElementById('beta-x').addEventListener('click', fechar);
+  document.getElementById('beta-fechar-ok').addEventListener('click', fechar);
+  [nome, email, cidade].forEach(function (c) { c.addEventListener('input', atualizar); });
+  perfil.addEventListener('change', atualizar); aceite.addEventListener('change', atualizar);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!valido() || enviando) return;
+    mostrarErro('');
+    if (!URL_DO_FORMULARIO) { mostrarErro('O formulário ainda não foi ligado ao servidor. Avise a equipe pelo e-mail equipecapibots@gmail.com.'); return; }
+    enviando = true; envia.textContent = 'Enviando…'; atualizar();
+    var ctl = ('AbortController' in window) ? new AbortController() : null;
+    var limite = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
+    fetch(URL_DO_FORMULARIO, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctl ? ctl.signal : undefined,
+      body: JSON.stringify({
+        nome: nome.value.trim(), email: email.value.trim(), perfil: perfil.value, cidade: cidade.value.trim(),
+        consentimento: aceite.checked === true, texto_versao: TEXTO_VERSAO, empresa_site: isca.value
+      })
+    }).then(function (r) { return r.json().catch(function () { return null; }); })
+      .then(function (r) {
+        if (r && r.ok === true) { telaForm.hidden = true; telaOk.hidden = false; document.getElementById('beta-ok-titulo').focus(); return; }
+        mostrarErro((r && r.erro) || 'Não foi possível enviar agora. Tente de novo em alguns minutos ou escreva para equipecapibots@gmail.com.');
+      })
+      .catch(function () { mostrarErro('Não foi possível enviar agora. Confira sua internet e tente de novo, ou escreva para equipecapibots@gmail.com.'); })
+      .then(function () { clearTimeout(limite); enviando = false; envia.textContent = 'Quero participar'; atualizar(); });
+  });
+  atualizar();
 })();
 
 /* Destaca no menu a seção que está na tela e mantém o link visível no menu rolável do celular */
